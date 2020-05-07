@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.login {
+    margin-left: auto;
+}
+
+a.signIn {
+  margin-right: 20px;
+}
+
+.card.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  padding: 3rem 10rem;
+  box-sizing: content-box;
+}
+
+img.card-img-top.img-info {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: blanchedalmond;
+    align-items: stretch;
+}
+
+.container.info-x {
+  display: flex;
+}
+
+.list-options {
+   margin-right: 3rem;
+   border: 1px solid #9999;
+   width: 200px;
+}
