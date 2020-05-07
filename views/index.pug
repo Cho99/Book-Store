@@ -1,0 +1,14 @@
+extends ./layouts/common
+
+block content
+  .container
+    .row
+      each book in books
+        .col-sm-4
+          .card(style='width: 18rem;')
+            img.card-img-top(src=`${url}/${book.coverUrl}`, alt='Card image cap')
+            .card-body
+              h5.card-title=book.name
+              p=book.userId
+              p.card-text=book.description
+              a.btn.btn-primary(href='#') Add to Cart

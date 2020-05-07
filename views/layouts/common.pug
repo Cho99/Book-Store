@@ -1,0 +1,20 @@
+html
+  head
+    link(rel="stylesheet",href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    link(rel="stylesheet",href="/style.css")
+  body
+    block header
+     nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href=url)
+        img.d-inline-block.align-top(src="https://cdn.glitch.com/4b0764bd-b40e-4306-9f1d-8acdeed012dc%2Ficon_codersx.png?v=1588813830096" height='30' alt='My Book')
+        | Dog Book Shop
+      if user
+        .login
+          a(href="/auth")
+           b Welcome: #{user.name}
+      else
+        .login
+          a(href="/auth/signIn" class="signIn") Sign In
+          a(href="/auth/login" class="login btn btn-primary") Login
+   
+    block content

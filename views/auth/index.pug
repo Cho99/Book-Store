@@ -1,0 +1,18 @@
+extends ../layouts/common
+
+block content
+  h1.text-center PROFILE
+  .container.info-x
+    ul.list-group.list-group-flush.list-options
+      li.list-group-item
+        a(href="#")
+          img(src="https://cdn.glitch.com/4b0764bd-b40e-4306-9f1d-8acdeed012dc%2Fbooks.png?v=1588824880612")/  My Books 
+    
+    .card.info(style='width: 18rem;')
+      img.card-img-top.img-info(src=`${url}/${user.avatar}`, alt="avatar")
+      .card-body
+        h5.card-title=user.name 
+        p.card-text=user.email
+
+        a.btn.btn-primary(href="#") Update
+     
