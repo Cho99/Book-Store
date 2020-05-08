@@ -1,0 +1,16 @@
+extends ../layouts/common
+
+block content
+  h1.text-center Update Book
+  div(class="container")
+    form(action="/books/update",method="POST", enctype="multipart/form-data")
+      div(class="form-group")
+        input(type="hidden", value=book.id)
+        label(for="name") Name:
+        input(name="name", id="name" ,type="text", class="form-control", value=book.name)
+        label(for="description") Description:
+        input(name="description", id="description" ,type="text",class="form-control", value=book.description)
+        label(for="coverUrl") Cover Book:
+        input(name="coverUrl", type="file", id="coverUrl",class="form-control-file")
+        img(src=`${url}/${book.coverBook}`)
+      button(class="btn btn-success btn-lg") Update
