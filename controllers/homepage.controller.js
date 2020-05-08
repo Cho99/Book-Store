@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const HomePage = require("../models/homepage.model");
 
 module.exports.index = async (req, res) => {
