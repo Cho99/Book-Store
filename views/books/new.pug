@@ -1,0 +1,14 @@
+extends ../layouts/common
+
+block content
+  h1.text-center New Book
+  div(class="container")
+    form(method="POST", enctype="multipart/form-data")
+      div(class="form-group")
+        label(for="name") Name:
+        input(name="name", id="name" ,type="text", class="form-control")
+        label(for="description") Description:
+        input(name="description", id="description" ,type="text",class="form-control")
+        label(for="coverUrl") Cover Book:
+        input(name="coverUrl", type="file", id="coverUrl",class="form-control-file")
+      button(class="btn btn-success btn-lg") Create

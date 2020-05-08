@@ -4,7 +4,7 @@ const homeSchema = new mongoose.Schema({
   userId: String,
   name: String,
   description: String,
-  coverUrl: String  
+  coverBook: String  
 });
 
 const HomePage = mongoose.model("HomePage", homeSchema, "books");

@@ -14,6 +14,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 const homepageRoute = require("./routes/homepage.route");
 const authRoute = require("./routes/auth.route");
+const bookRoute = require("./routes/book.route");
 
 //middeware
 const middeware = require("./middewares/user.middeware");
@@ -21,6 +22,7 @@ app.use(middeware.userExist);
 
 app.use("/", homepageRoute);
 app.use("/auth", authRoute);
+app.use("/books", bookRoute);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
