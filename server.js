@@ -19,7 +19,9 @@ const transactionRoute = require("./routes/transactions.route");
 
 //middeware
 const middeware = require("./middewares/user.middeware");
+const sessionMiddeware = require("./middewares/session.middeware");
 app.use(middeware.userExist);
+app.use(sessionMiddeware);
 
 app.use("/", homepageRoute);
 app.use("/auth", authRoute);

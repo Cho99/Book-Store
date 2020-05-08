@@ -16,5 +16,11 @@ html
         .login
           a(href="/auth/signIn" class="signIn") Sign In
           a(href="/auth/login" class="login btn btn-primary") Login
+      .border.border-warning.ml-1.rounded-lg
+        .d-flex.p-2.align-items-center
+         a(href="/cart")
+           img(src="https://cdn.glitch.com/4b0764bd-b40e-4306-9f1d-8acdeed012dc%2Fcart.png?v=1588900840787")
+           span.text-primary.ml-2.mr-2 Giỏ hàng có
+           span.bg-warning.rounded-lg.p-1=total
      
     block content
