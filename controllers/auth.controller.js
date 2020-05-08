@@ -26,7 +26,10 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.login = (req, res) => {
-  res.render("auth/login");
+  const url = req.protocol+"://"+req.headers.host;
+  res.render("auth/login", {
+    url
+  });
 }
 
 module.exports.postLogin = async (req, res) => {
@@ -47,7 +50,7 @@ module.exports.postLogin = async (req, res) => {
     if (result) {
         res.cookie("userId", user.id, {
           signed: true
-        });
+        });  
         res.redirect("/auth");
     } else {
        res.render("auth/login", {

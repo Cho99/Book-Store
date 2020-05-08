@@ -10,19 +10,26 @@ module.exports = async (req, res, next) => {
     
    await Cart.create({
       userId : sessionId,
-      cart: JSON.stringify({})
+      cart: [],
     });
   }
-  let id = req.signedCookies.sessionId;
-  let cart = await Cart.findOne({userId : id});
-  if (id && cart) {
-    cart = JSON.parse(cart.cart);
-    cart = Object.values(cart);
+  
+  let sessionId = req.signedCookies.sessionId;
+  let userId = req.signedCookies.userId;
+  let id = "";
+  if(userId !== sessionId) {
+    id = sessionId;
+  } else {
+    id = userId;
+  }
+  let carts = await Cart.findOne({userId : id});
+  if (id && carts) {
+    console.log(carts.cart);
     let total = 0;
-    for(let number of cart) {
-      total += number
-    }
-    res.locals.total = 0
+    for(let cart in carts) {
+      cart.value += total
+    } 
+    res.locals.total = total;
   }else {
     res.locals.total = 0
   }  

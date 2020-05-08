@@ -16,6 +16,7 @@ const homepageRoute = require("./routes/homepage.route");
 const authRoute = require("./routes/auth.route");
 const bookRoute = require("./routes/book.route");
 const transactionRoute = require("./routes/transactions.route");
+const cartRoute = require("./routes/cart.route");
 
 //middeware
 const middeware = require("./middewares/user.middeware");
@@ -27,7 +28,7 @@ app.use("/", homepageRoute);
 app.use("/auth", authRoute);
 app.use("/books", bookRoute);
 app.use("/transactions", transactionRoute);
-
+app.use("/cart", cartRoute);
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
