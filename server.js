@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://Dog:"+process.env.API_PASSWORD_MONGODB+"@cluster0-lgd9k.gcp.mongodb.net/books-store?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://Dog:"+process.env.API_PASSWORD_MONGODB+"@cluster0-lgd9k.gcp.mongodb.net/books-store?retryWrites=true&w=majority",{useNewUrlParser: true , useUnifiedTopology: true});
 app.set("view engine", "pug");
 app.set("views", "./views");
 
