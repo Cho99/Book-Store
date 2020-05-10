@@ -11,4 +11,5 @@ router.post("/new", upload.single("coverUrl"), controller.postNew);
 router.get("/update/:id", controller.update);
 router.post("/update", upload.single("coverUrl"),controller.postUpdate);
 router.get("/:id/delete", controller.delete);
+
 module.exports = router;

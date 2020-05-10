@@ -2,8 +2,10 @@ const express = require("express");
 const cookieParser = require('cookie-parser');
 const app = express();
 const mongoose = require('mongoose');
+const session = require('express-session')
+const MongoStore = require("connect-mongo")(session);
 
-mongoose.connect("mongodb+srv://Dog:"+process.env.API_PASSWORD_MONGODB+"@cluster0-lgd9k.gcp.mongodb.net/books-store?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://Dog:"+process.env.API_PASSWORD_MONGODB+"@cluster0-lgd9k.gcp.mongodb.net/books-store?retryWrites=true&w=majority", {useNewUrlParser: true , useUnifiedTopology: true});
 app.set("view engine", "pug");
 app.set("views", "./views");
 
@@ -21,6 +23,8 @@ const cartRoute = require("./routes/cart.route");
 //middeware
 const middeware = require("./middewares/user.middeware");
 const sessionMiddeware = require("./middewares/session.middeware");
+
+
 app.use(middeware.userExist);
 app.use(sessionMiddeware);
 
