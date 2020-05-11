@@ -14,7 +14,7 @@ module.exports.authLogin = async (req, res, next) => {
     return;
   }
   if (userId !== sessionId) {
-    const x = await Cart.findOneAndUpdate({userId : sessionId}, {userId : userId});
+    await Cart.findOneAndUpdate({userId : sessionId}, {userId : userId});
     res.cookie("sessionId", userId, {
       signed: true
     }); 

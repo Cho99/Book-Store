@@ -4,17 +4,21 @@ module.exports.cartAdd = async (req, res) => {
   const bookId = req.params.bookId;
   const sessionId = req.signedCookies.sessionId;
   
-  if(!sessionId) {
-    res.redirect("/");
-    return;
-  } 
+  const session = await Cart.findOne({userId: sessionId});
+  let book = session.cart.find(
+    cartItem => cartItem.bookId == bookId
+  );
+  console.log(book);
   
-  const count = await Cart.findOne({userId: sessionId});
-  console.log( JSON.parse(count.cart));
-  res.send("Hello")
+  if (book) {
+    book.qty += 1;
+    session.save();
+  }else {
+    await Cart.findOneAndUpdate({userId: sessionId}, {
+      $push: {cart: {bookId, qty: 1}}
+    }) 
+  }
   
-}
-
-module.exports.index = async (req, res) => {
-  res.send("Hello")
+  res.send("Hello");
+  
 }
