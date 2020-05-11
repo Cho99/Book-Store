@@ -1,0 +1,25 @@
+extends ../layouts/common
+
+block content
+  h1.text-center Cart
+  .container
+    table.table
+      thead.thead-light
+        tr.text-center
+          th Book
+          th Name
+          th Lender
+          th Quality
+      each book in books
+        tr.text-center
+          if book.coverBook
+            td
+              img(src=`${url}/${book.coverBook}`, width="50")
+          td=book.name
+          td=book.user
+          td=book.qty
+      tr.text-center
+        td(cospan="4")
+          button.btn.btn-primary Cofirm
+        th(colspan="3") Total= #{total}
+        
