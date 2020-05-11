@@ -5,8 +5,7 @@ const mongoose = require('mongoose');
 const session = require('express-session')
 const MongoStore = require("connect-mongo")(session);
 
-mongoose.connect("mongodb+srv://Dog:"+process.env.API_PASSWORD_MONGODB+"@cluster0-lgd9k.gcp.mongodb.net/books-store?retryWrites=true&w=majority",{useNewUrlParser: true , useUnifiedTopology: true});
-
+mongoose.connect("mongodb+srv://Dog:"+process.env.API_PASSWORD_MONGODB+"@cluster0-lgd9k.gcp.mongodb.net/books-store?retryWrites=true&w=majority", {useNewUrlParser: true , useUnifiedTopology: true});
 app.set("view engine", "pug");
 app.set("views", "./views");
 
